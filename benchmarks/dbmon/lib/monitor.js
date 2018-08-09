@@ -1,4 +1,4 @@
-var Monitoring = Monitoring || (function() {
+var Monitoring = Monitoring || (() => {
 
   var stats = new MemoryStats();
   stats.domElement.style.position = 'fixed';
@@ -10,7 +10,7 @@ var Monitoring = Monitoring || (function() {
       requestAnimationFrame(rAFloop);
   });
 
-  var RenderRate = function () {
+  var RenderRate = () => {
     var container = document.createElement( 'div' );
     container.id  = 'stats';
     container.style.cssText = 'width:150px;opacity:0.9;cursor:pointer;position:fixed;right:80px;bottom:0px;';
@@ -31,7 +31,7 @@ var Monitoring = Monitoring || (function() {
     var lastTime  = Date.now();
     return {
       domElement: container,
-      ping: function () {
+      ping: () => {
         var start = lastTime;
         var stop = Date.now();
         var rate = 1000 / (stop - start);
